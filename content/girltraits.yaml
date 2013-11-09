@@ -1,0 +1,29 @@
+#Girl Character Traits
+
+- name: Trait
+  description: A special feature of a girl
+  base: [types.Effect]
+- name: BodyTrait
+  description: A feature of a girl's body
+  bodypart: Overall
+  base: [Trait]
+
+#Body traits
+
+- name: Abnormally Large Boobs
+  description: Her breasts are extremely large
+  bodypart: Boobs
+  exclusivegroup: BoobSize
+  statmods: {Beauty: 15}
+  base: [BodyTrait]
+- name: Big Boobs
+  description: Her breasts are quite large
+  bodypart: Boobs
+  exclusivegroup: BoobSize
+  statmods: {Beauty: 10}
+  base: [BodyTrait]
+- name: Big Boobs
+  description: Her breasts are quite large
+  bodypart: Boobs
+  statmods: {Beauty: 10}
+  base: [BodyTrait]

@@ -1,0 +1,19 @@
+#Base types
+
+- name: Attribute
+  description: A core attribute of an entity
+  value: Unknown
+  valuetype: String
+- name: Stat
+  description: An attribute with a value that changes over time
+  base: [Attribute]
+- name: Percent
+  description: Numeric value between 0 and 100
+  value: 0
+  valuetype: int
+- name: Ability
+  description: A 0-100 s    tat that measures ability
+  base: [Stat, Percent]
+- name: Effect
+  description: A stat modifier
+  statmods: {}

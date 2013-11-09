@@ -1,0 +1,114 @@
+#Girl Character Template
+
+#Character attributes
+- name: Name
+  description: The girl's name
+  base: [types.Attribute]
+- name: Desc
+  description: A short description of the girl
+  base: [types.Attribute]
+- name: ID
+  description: A unique ID for a specific character
+  base: [types.Attribute]
+- name: Age
+  description: How many years old she is
+  base: [types.Stat]
+  value: 18
+  valuetype: int
+- name: Traits
+  description: Special features of a girl
+  base: [types.Attribute]
+  value: []
+  valuetype: stringlist
+  
+#Character abilities
+- name: Confidence
+  description: Belief in her ability to perform well
+  base: [types.Ability]
+- name: Constitution
+  description: Physical toughness
+  base: [types.Ability]
+- name: Obedience
+  description: Willingness to obey orders
+  base: [types.Ability]
+- name: Charisma
+  description: How much others are drawn to her personality
+  base: [types.Ability]
+- name: Beauty
+  description: Physical appearance
+  base: [types.Ability]
+- name: Libido
+  description: Sex drive
+  base: [types.Ability]
+- name: Spirit
+  description: Assertiveness and independent drive
+  base: [types.Ability]
+- name: Intelligence
+  description: Intellectual ability
+  base: [types.Ability]
+- name: Agility
+  description: Physical dexterity
+  base: [types.Ability]
+  
+  #Non-sexual skills
+- name: Service
+  description: Ability to serve customers
+  base: [types.Ability]
+- name: Diligence
+  description: Attention to detail during tasks
+  base: [types.Ability]
+- name: Magic
+  description: Ability to use magic
+  base: [types.Ability]
+- name: Combat
+  description: Fighting expertise
+  base: [types.Ability]
+  
+  #Sexual skills
+- name: NormalSex
+  description: General sexual ability
+  base: [types.Ability]
+- name: Group
+  description: Ability to please multiple people
+  base: [types.Ability]
+- name: BDSM
+  description: Kinky power play sex ability
+  base: [types.Ability]
+- name: Beastiality
+  description: Sexual ability with non-humans
+  base: [types.Ability]
+- name: Strip
+  description: Ability to show off her goods
+  base: [types.Ability]
+- name: Anal
+  description: Buttsex ability
+  base: [types.Ability]
+- name: Lesbian
+  description: Girl-on-girl ability
+  base: [types.Ability]
+  
+  #Temporary stats
+- name: Health
+  description: Physical health
+  base: [types.Ability]
+- name: PCHate
+  description: Hatred of the player character
+  base: [types.Ability]
+- name: PCFear
+  description: Fear of the player character
+  base: [types.Ability]
+- name: PCLove
+  description: Love for the player character
+  base: [types.Ability]
+- name: Tiredness
+  description: Fatigue from over-activity
+  base: [types.Ability]
+- name: Happiness
+  description: Satisfaction with her life
+  base: [types.Ability]
+- name: Fame
+  description: Notibility with the public
+  base: [types.Ability]
+
+
+
