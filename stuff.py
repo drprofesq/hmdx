@@ -9,6 +9,9 @@ import log
 def fileexists(filepath):
     return os.path.isfile(filepath)
 
+def folderexists(folderpath):
+    return  os.path.isdir(folderpath)
+
 def readtext(filepath):
     log.verbose('Reading file "%s" as text' % filepath)
     with open (filepath, 'r') as f:
@@ -32,6 +35,9 @@ def filename(path, ext=True):
     if not ext:
         filename = os.path.splitext(filename)[0]
     return filename
+    
+def foldername(path):
+    return os.path.dirname(path)
     
 def fileext(path):
     return os.path.splitext(path)[1]

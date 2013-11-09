@@ -26,6 +26,9 @@ def importgirls(girlsfile):
 def importallgirls(girlsdir):
     log.debug('Importing all girls from folder %s' % girlsdir)
     girls = []
+    if not stuff.folderexists(girlsdir):
+        log.warning('Folder not found: %s' % girlsdir)
+        return girls
     files = stuff.findfiles('*.girlsx', girlsdir)
     for girlsfile in files:
         newgirls = importgirls(girlsfile)

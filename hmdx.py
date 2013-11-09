@@ -6,10 +6,11 @@ import log, stuff
 
 import wmimport, template
 
-def convertgirls(importedgirls):
+def convertgirls(importedgirls, basefolder=''):
     log.debug('Converting %s girls' % len(importedgirls))
     templates = {}
-    loaded = template.loadalltemplates('content', templates)
+    contentfolder = stuff.joinpath(basefolder, 'content')
+    loaded = template.loadalltemplates(contentfolder, templates)
     nonbases = template.findnonbasetemplates(loaded['girlbase'])
     girls = []
     for importedgirl in importedgirls:
@@ -43,10 +44,13 @@ def convertgirls(importedgirls):
     
 def imagefind(path):
     log.debug('Finding images')
+    images = {}
+    if not stuff.folderexists(path):
+        log.warning('Folder not found: %s' % path)
+        return images
     IMAGE_TYPES = ['anal', 'bdsm', 'beast', 'bunny', 'combat', 'death', 'ecchi', 'group', 'les', 'maid', 'mast', 'nude', 'oral', 'preg', 'profile', 'sex', 'sing', 'strip', 'titty', 'wait']
     IMAGE_TYPES.extend([ 'preg' + imagetype for imagetype in IMAGE_TYPES ])
     IMAGE_TYPES.sort(key=len, reverse=True)
-    images = {}
     girlfolders = stuff.findfolders(path)
     templist = []
     for girlfolder in girlfolders:
@@ -73,9 +77,10 @@ def imagefind(path):
     
 
 def newgame():
-    girldir = 'wmgirls'
+    basefolder = stuff.foldername(__file__)
+    girldir = stuff.joinpath(basefolder, 'wmgirls')
     importedgirls = wmimport.importallgirls(girldir)
-    girls = convertgirls(importedgirls)
+    girls = convertgirls(importedgirls, basefolder)
     images = imagefind(girldir)
     return {'girls':girls, 'images':images}
 

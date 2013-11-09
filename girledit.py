@@ -1,3 +1,5 @@
+#!/usr/bin/kivy
+
 import sys
 
 import kivy
@@ -18,12 +20,13 @@ class GirlEditApp(App):
         gamedata = hmdx.newgame()
         gamedata['girlnames'] = girlnames = []
         girls = gamedata['girls']
-        stuff.dump('temp.yaml', girls)
         for girl in girls:
             if 'Name' in girl:
                 girlnames.append(girl['Name']['value'])
         girlnames.sort()
-        gamedata['currentgirlname'] = girlnames[0]
+        gamedata['currentgirlname'] = ''
+        if len(girlnames) > 0:
+            gamedata['currentgirlname'] = girlnames[0]
         return Editor(**gamedata)
         
 class Editor(BoxLayout):
