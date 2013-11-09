@@ -1,0 +1,44 @@
+#:kivy 1.0
+
+<Editor>:
+    id: boxes
+    orientation: 'vertical'
+    BoxLayout:
+        id: topbox
+        size_hint_y: 0.8
+        orientation: 'horizontal'
+        BoxLayout:
+            id: infobox
+            Spinner:
+                id: girlspinner
+                values: root.girlnames
+                text: root.currentgirlname
+                on_text: root.currentgirlname = self.text
+        BoxLayout:
+            id: imagebox
+            orientation: 'vertical'
+            GirlImage:
+                id: girlimage
+                images: self.loadimages(root.currentgirlname, root.images)
+                source: self.image
+            BoxLayout:
+                id: controlsbox
+                padding: 2
+                spacing: 2
+                size_hint_y: .2
+                Button:
+                    id: lastbutton
+                    text: 'Last'
+                    on_press: girlimage.last()
+                Spinner:
+                    id: categoryspinner
+                    size_hint_x: 2
+                    values: girlimage.categories
+                    text: girlimage.category
+                    on_text: girlimage.setcategory(self.text)
+                Button:
+                    id: nextbutton
+                    text: 'Next'
+                    on_press: girlimage.next()
+    Button:
+        text: 'BottomPanel'

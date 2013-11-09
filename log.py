@@ -3,6 +3,7 @@ import sys
 import inspect, os
 
 LEVELS = ['ignore', 'verbose', 'debug', 'warning', 'assertx', 'error', 'info', 'critical']
+MIN_PRINT = 'debug'
 
 def ignore(message, tag=None):
     log(tag, 'ignore', message)
@@ -35,21 +36,32 @@ def log(tag, level, message):
         tag = '%s.%s[%s]' % (caller['module'], caller['method'], caller['line'])
         
     logline = '%s-%s: ** %s **' % (level.upper(), tag, message)
-    print logline
+    if LEVELS.index(level) >= LEVELS.index(MIN_PRINT):
+        print logline
     
 def callerdetails():
     stack = inspect.stack()
+    temp = []
     for call in stack:
         path = call[1]
-        if path == __file__:
-            continue
-        module = os.path.splitext(path)[0]
+        module = os.path.basename(path)
+        module = os.path.splitext(module)[0]
+        path = os.path.splitext(path)[0]
+        filename = os.path.splitext(__file__)[0]
         line = call[2]
         method = call[3]
+        #temp.append('path "%s"' % path)
+        #temp.append('file "%s"' % filename)
+        #temp.append('line "%s"' % line)
+        #temp.append('method "%s"' % method)
+        if filename == path:
+            continue
         caller = {}
         caller['module'] = module
         caller['method'] = method
         caller['line'] = line
+        #print caller
+        #print temp
         return caller
 
 def main(argv=None):
