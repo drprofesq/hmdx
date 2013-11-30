@@ -7,6 +7,9 @@
   description: A feature of a girl's body
   bodypart: Overall
   base: [Trait]
+- name: PersonalityTrait
+  description: A aspect of a girl's personality
+  base: [Trait]
 
 #Body traits
 
@@ -22,8 +25,80 @@
   exclusivegroup: BoobSize
   statmods: {Beauty: 10}
   base: [BodyTrait]
-- name: Big Boobs
-  description: Her breasts are quite large
-  bodypart: Boobs
+- name: Cool Scars
+  description: She has some badass scars
+  bodypart: Skin
+  statmods: {Beauty: -10, Constitution: 15}
+  base: [BodyTrait]
+- name: Eye Patch
+  description: She wears an eyepatch
+  bodypart: Eyes
+  statmods: {Beauty: -15, Constitution: 20}
+  base: [BodyTrait]
+- name: Great Arse
+  description: She has a magnificent ass
+  bodypart: Ass
+  statmods: {Beauty: -15, Constitution: 20}
+  base: [BodyTrait]
+- name: Great Figure
+  description: She has a nice figure
   statmods: {Beauty: 10}
   base: [BodyTrait]
+- name: Long Legs
+  description: Her legs are nice and long
+  bodypart: Legs
+  statmods: {Beauty: 5}
+  base: [BodyTrait]
+- name: Perky Nipples
+  description: Her nipples are perky
+  bodypart: Boobs
+  exclusivegroup: NippleType
+  statmods: {Beauty: 5}
+  base: [BodyTrait]
+- name: Puffy Nipples
+  description: Her nipples are puffy
+  bodypart: Boobs
+  exclusivegroup: NippleType
+  statmods: {Beauty: 5}
+  base: [BodyTrait]
+- name: Small Boobs
+  description: She has very small breasts
+  bodypart: Boobs
+  exclusivegroup: BoobSize
+  statmods: {Beauty: -5}
+  base: [BodyTrait]
+- name: Strange Eyes
+  description: Her eyes have a strange tint
+  bodypart: Eyes
+  statmods: {Beauty: -5, Charisma: -5, Spirit: 5, Magic: 5}
+  base: [BodyTrait]
+
+#Personality traits
+
+- name: Aggressive
+  description: She is aggressive
+  exclusivegroup: Calmness
+  statmods: {Spirit: 5, Confidence: 10, Service: -5}
+  base: [PersonalityTrait]
+- name: Broken Will
+  description: She no longer has the will to fight
+  exclusivegroup: Will
+  statmods: {Obedience: 40, Spirit: -40, Confidence: -30, Combat: -15}
+  base: [PersonalityTrait]
+- name: Charismatic
+  description: She has a magnetic personality
+  statmods: {Charisma: 15}
+  base: [PersonalityTrait]
+- name: Cool Person
+  description: She has a cool personality
+  exclusivegroup: Coolness
+  statmods: {Charisma: 10, Confidence: 10}
+  base: [PersonalityTrait]
+- name: Dependant
+  description: She depends on people to take care of her
+  statmods: {Obedience: 20, Service: 10, Spirit: -20, Confidence: -20}
+  base: [PersonalityTrait]
+- name: Elegant
+  description: She has an air of elegance
+  statmods: {Obedience: 20, Service: 10, Spirit: -20, Confidence: -20}
+  base: [PersonalityTrait]
